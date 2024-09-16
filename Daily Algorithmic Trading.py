@@ -35,7 +35,6 @@ from tensorflow.keras.optimizers import Adamax
 
 btc = yf.download(['btc-usd'], period = '1y', interval='1h')
 
-
 # Creating the features
 
 rsi_periods = list(range(2, 25))
@@ -97,7 +96,7 @@ def vs_indicator(data: pd.DataFrame, window: int = 168):
 
 vol_spread = vs_indicator(btc, 168)
 
-# use adx_pca length as the denominator for the rest of indicators
+# use adx_pca length as the length for the rest of indicators
 rsi_pca = rsi_pca.tail(len(adx_pca))
 rsi_pca.reset_index(drop=True, inplace=True)
 rvi_pca = rvi_pca.tail(len(adx_pca))
